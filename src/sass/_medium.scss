@@ -1,6 +1,10 @@
 @use 'colors' as *;
 
 @media (min-width: 772px) {
+	header {
+		height: 100vh;
+	}
+
 	.main {
 		flex-direction: row;
 
