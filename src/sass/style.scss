@@ -35,7 +35,7 @@ header {
 }
 
 .circle {
-	position: absolute;
+	position: fixed;
 	box-shadow: 0px 0px 500px 80px $primary;
 	animation: circleMoving 10s infinite;
 

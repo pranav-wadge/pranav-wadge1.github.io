@@ -31,13 +31,15 @@
 
 	nav {
 		position: absolute;
-		flex-direction: column;
-		top: 0;
 		right: 0;
 		width: 0%;
 		margin-right: 4.5rem;
 		font-size: 3rem;
 		background: none;
+
+		.nav {
+			flex-direction: column;
+		}
 
 		a {
 			padding: 3rem 3rem;
