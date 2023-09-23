@@ -146,7 +146,6 @@ header {
 
 	&__image {
 		order: -1;
-		margin-top: -30rem;
 		width: 50%;
 		margin-bottom: 2rem;
 
@@ -163,15 +162,20 @@ header {
 }
 
 nav {
-	position: absolute;
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	bottom: 0;
+	position: relative;
+	justify-self: flex-start;
 	width: 100%;
-	font-size: 2.5rem;
-	background-color: $third;
+
+	.nav {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		bottom: 0;
+		width: 100%;
+		font-size: 2.5rem;
+		background-color: $third;
+	}
 
 	a {
 		position: relative;
