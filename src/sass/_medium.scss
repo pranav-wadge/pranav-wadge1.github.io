@@ -5,15 +5,21 @@
 		flex-direction: row;
 
 		&__info {
-			margin-left: 3rem;
+			margin-left: 10rem;
 
 			h1,
 			h2 {
 				padding-right: 2rem;
+				text-wrap: nowrap;
 			}
 		}
 
 		&__image {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 0rem;
+			margin-right: 4rem;
 			order: 1;
 			margin-bottom: 0;
 
