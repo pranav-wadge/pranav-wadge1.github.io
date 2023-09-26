@@ -20,24 +20,25 @@
 
 		&__image {
 			display: flex;
-			justify-content: center;
+			justify-content: flex-start;
 			align-items: center;
 			// margin-top: 0rem;
-			margin-right: 4rem;
+			margin-right: 6rem;
 			order: 1;
 			margin-bottom: 0;
 
 			img {
-				width: 70%;
+				width: 80%;
 			}
 		}
 	}
 
 	nav {
-		position: absolute;
 		right: 0;
+		bottom: 50%;
+		transform: translate(0, 50%);
 		width: 0%;
-		margin-right: 4.5rem;
+		margin-right: 6rem;
 		font-size: 3rem;
 		background: none;
 
@@ -110,6 +111,37 @@
 					}
 				}
 			}
+		}
+	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	/// PROJECTS
+
+	.projects {
+		&__project {
+			flex-direction: row;
+			// max-width: 1000px;
+			// margin: 2rem 2rem;
+			// padding: 0.5rem;
+
+			&:nth-child(even) {
+				.projects__img {
+					order: 1;
+				}
+
+				.projects__desc {
+					align-items: flex-end;
+					text-align: right;
+				}
+			}
+		}
+
+		&__img {
+			width: 50%;
+		}
+
+		&__desc {
+			width: 50%;
 		}
 	}
 }

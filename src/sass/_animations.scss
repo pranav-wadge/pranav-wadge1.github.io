@@ -1,0 +1,13 @@
+@keyframes circleMoving {
+	0% {
+		transform: translate(-5rem, 5rem);
+	}
+
+	50% {
+		transform: translate(5rem, -5rem);
+	}
+
+	100% {
+		transform: translate(-5rem, 5rem);
+	}
+}

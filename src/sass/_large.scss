@@ -1,10 +1,25 @@
 @use 'colors' as *;
 
 @media (min-width: 992px) {
+	.section {
+		&__title {
+			margin-top: 3rem;
+			margin-bottom: 4rem;
+
+			h2 {
+				font-size: 5rem;
+			}
+
+			p {
+				font-size: 8rem;
+			}
+		}
+	}
+
 	.main {
 		&__info {
 			h1 {
-				font-size: 7.5rem;
+				font-size: 5rem;
 			}
 
 			h2 {
@@ -31,18 +46,51 @@
 		}
 
 		&__image {
+			justify-content: center;
+
 			img {
 				width: 70%;
+				margin-right: 4rem;
 			}
 		}
 	}
+
+	nav {
+		.nav {
+			font-size: 3.5rem;
+		}
+
+		a {
+			margin: 1rem 1.5rem;
+			padding: 3.5rem;
+			border-radius: 1rem;
+		}
+	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	/// PROJECTS
 }
 
 @media (min-width: 1400px) {
+	.section {
+		&__title {
+			margin-top: 5rem;
+			margin-bottom: 6rem;
+
+			h2 {
+				font-size: 6rem;
+			}
+
+			p {
+				font-size: 10rem;
+			}
+		}
+	}
+
 	.main {
 		&__info {
 			h1 {
-				font-size: 10rem;
+				font-size: 7rem;
 			}
 
 			h2 {
