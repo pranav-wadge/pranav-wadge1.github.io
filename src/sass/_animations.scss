@@ -11,3 +11,13 @@
 		transform: translate(-5rem, 5rem);
 	}
 }
+
+@keyframes pageTransition {
+	from {
+		top: 50%;
+	}
+
+	to {
+		top: 150%;
+	}
+}

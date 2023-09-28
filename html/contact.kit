@@ -14,25 +14,49 @@
 		<link rel="stylesheet" href="./dist/css/style.min.css" />
 	</head>
 	<body>
-		<header>
+		<header class="header__sections">
+			<div class="pageTransition"></div>
+
 			<div class="circle"></div>
 			<div class="circle"></div>
 
-			<div class="main">
-				<div class="main__info">
-					<h1>Damian Duda</h1>
-					<h2>Full Stack Developer</h2>
-
-					<a class="main__info-btn" href="#">Moje projekty</a>
-
-					<div class="main__socials">
-						<a href="#"><i class="fa-brands fa-linkedin"></i></a>
-						<a href="#"><i class="fa-brands fa-square-github"></i></a>
-					</div>
+			<div class="projects section">
+				<div class="section__title">
+					<h2>KONTAKT</h2>
+					<p>KONTAKT</p>
 				</div>
 
-				<div class="main__image">
-					<img draggable="false" ondragstart="return false;" src="./dist/img/profile.png" alt="#" />
+				<div class="projects__contact">
+					<div class="projects__contact-social">
+						<div class="projects__contact-element">
+							<a href="https://discordapp.com/users/489520629976924200" target="_blank"><i class="fa-brands fa-discord"></i>&nbsp;thadon1110</a>
+						</div>
+
+						<div class="projects__contact-element">
+							<a href="mailto:damian.duda2302@gmail.com"><i class="fa-solid fa-envelope"></i>&nbsp;damian.duda2302@gmail.com</a>
+						</div>
+					</div>
+
+					<div class="projects__contact-form">
+						<form action="">
+							<div class="projects__contact-input">
+								<input type="text" id="name" placeholder=" " minlength="1" />
+								<label for="name">Imię</label>
+							</div>
+
+							<div class="projects__contact-input">
+								<input type="text" id="topic" placeholder=" " />
+								<label for="topic">Tytuł</label>
+							</div>
+
+							<div class="projects__contact-input">
+								<textarea id="message" placeholder=" "></textarea>
+								<label class="projects__contact-textareaLabel" for="message">Wiadomość</label>
+							</div>
+
+							<button type="submit">Wyślij</button>
+						</form>
+					</div>
 				</div>
 			</div>
 

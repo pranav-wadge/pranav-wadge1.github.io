@@ -13,6 +13,18 @@ header {
 	justify-content: center;
 	align-items: center;
 	height: 100%;
+
+	.pageTransition {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		height: 100%;
+		width: 100%;
+		background-color: $third;
+		z-index: 1000;
+		animation: 1s cubic-bezier(0.215, 0.61, 0.355, 1) forwards pageTransition;
+	}
 }
 
 .header {
@@ -55,7 +67,7 @@ header {
 	box-shadow: 0px 0px 500px 80px $primary;
 	animation: circleMoving 10s infinite;
 
-	&:nth-child(1) {
+	&:nth-child(3) {
 		left: 3%;
 		top: 5%;
 	}
@@ -167,9 +179,8 @@ header {
 
 		img {
 			width: 100%;
-			padding: 1rem;
 			border-radius: 1rem;
-			border: 5px solid $primary;
+			border: 1rem solid $primary;
 			box-shadow: 0px 0px 100px rgb(15, 255, 80, 0.3);
 			background-color: $primarydarker;
 			user-select: none;
@@ -189,6 +200,8 @@ nav {
 		align-items: center;
 		bottom: 0;
 		width: 100%;
+		border-top-right-radius: 2rem;
+		border-top-left-radius: 2rem;
 		font-size: 2.5rem;
 		background-color: $third;
 	}
@@ -245,11 +258,6 @@ nav {
 		margin: 2rem 2rem;
 		padding: 0.5rem;
 		background-color: rgb(51, 51, 51, 0.6);
-		transition: background-color 0.3s;
-
-		&:hover {
-			background-color: rgb(51, 51, 51, 1);
-		}
 
 		&:nth-child(odd) {
 			border-bottom-right-radius: 3rem;
@@ -268,9 +276,34 @@ nav {
 
 	&__img {
 		position: relative;
+		display: flex;
 		align-self: center;
 		max-width: 80vw;
 		margin: 1rem;
+
+		a {
+			color: $primary;
+		}
+
+		&-link {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			height: 100%;
+			border-radius: 2rem;
+			font-size: 4rem;
+			background-color: rgb(28, 28, 28, 0.8);
+			opacity: 0;
+			transition: opacity 0.3s;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
 
 		img {
 			position: relative;
@@ -291,7 +324,7 @@ nav {
 			font-size: 3rem;
 			font-family: 'Press Start 2P', cursive;
 			color: $primary;
-			text-shadow: 0px 0px 1rem #000;
+			text-shadow: 0px 0px 2rem #000;
 		}
 
 		.projects__stack {
@@ -304,6 +337,12 @@ nav {
 				height: 4rem;
 				margin-right: 1rem;
 				margin-top: 1rem;
+				filter: drop-shadow(0px 0px 1rem rgb(0 0 0 / 0.8));
+				transition: scale 0.3s;
+
+				&:hover {
+					scale: 1.1;
+				}
 			}
 		}
 
@@ -356,6 +395,146 @@ nav {
 			height: 100%;
 			background-color: $primary;
 			mix-blend-mode: difference;
+		}
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+/// CONTACT
+
+.projects {
+	&__contact {
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+
+		&-social {
+			text-align: left;
+		}
+
+		&-element {
+			margin: 2rem;
+			margin-bottom: 5rem;
+			text-shadow: 0px 0px 2rem #000;
+			font-size: 2rem;
+			color: $primary;
+
+			a {
+				color: $primary;
+			}
+		}
+
+		&-form {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			margin-top: 2rem;
+			margin-bottom: 10rem;
+			width: 100%;
+
+			form {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				width: 60%;
+			}
+
+			label {
+				text-shadow: 2px 2px 0.5rem #000;
+				font-size: 2rem;
+				cursor: text;
+			}
+
+			input,
+			textarea {
+				width: 100%;
+				padding: 2.5rem;
+				margin: 2rem;
+				border-radius: 4.5rem;
+				border: none;
+				text-shadow: 2px 2px 0.5rem #000;
+				background-color: $third;
+				color: $primary;
+				font-size: 2rem;
+				transition: border-radius 0.3s, outline 0.3s;
+			}
+
+			input:focus,
+			textarea:focus {
+				border-radius: 1rem;
+				box-shadow: inset 0px 0px 0.5rem #000;
+				outline: 5px solid $primary;
+
+				& + label {
+					top: 1.8rem;
+					left: 3rem;
+					outline: 5px solid $primary;
+					background-color: $third;
+				}
+			}
+
+			input:not(:placeholder-shown),
+			textarea:not(:placeholder-shown) {
+				& + label {
+					top: 1.8rem;
+					left: 3rem;
+					outline: 5px solid $primary;
+					background-color: $third;
+				}
+
+				& {
+					border-radius: 1rem;
+					box-shadow: inset 0px 0px 0.5rem #000;
+					outline: 5px solid $primary;
+				}
+			}
+
+			textarea {
+				min-height: 10rem;
+			}
+
+			button {
+				align-self: flex-end;
+				padding: 0.8rem;
+				border-radius: 1rem;
+				transform: skew(-15deg) translate(0px, 0px);
+				font-size: 2rem;
+				font-weight: 600;
+				color: #000;
+				background-color: $primary;
+				box-shadow: 3px 5px 0px #000;
+				transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.3s;
+
+				&:hover {
+					transform: skew(-15deg) translate(0px, 5px);
+					box-shadow: none;
+				}
+			}
+		}
+
+		&-input {
+			position: relative;
+			margin-bottom: 1rem;
+			width: 100%;
+
+			label {
+				position: absolute;
+				top: 50%;
+				transform: translate(0, -50%);
+				left: 2rem;
+				font-size: 2rem;
+				padding: 0.5rem 1rem;
+				border-radius: 4.5rem;
+				color: $primary;
+				transition: top 0.3s, left 0.3s, background-color 0.1s;
+			}
+
+			.projects__contact-textareaLabel {
+				top: 4.7rem;
+			}
 		}
 	}
 }
