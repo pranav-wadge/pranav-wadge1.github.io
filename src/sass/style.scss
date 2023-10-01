@@ -1,5 +1,6 @@
-@use 'reset' as *;
 @use 'colors' as *;
+@use 'reset' as *;
+@use 'mixins' as *;
 @use 'animations' as *;
 
 body {
@@ -10,7 +11,7 @@ header {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	height: 100%;
 
@@ -110,7 +111,7 @@ header {
 	&__title {
 		position: relative;
 		padding: 2rem;
-		margin-bottom: 2rem;
+		margin: 2rem 0;
 		font-family: 'Press Start 2P', cursive;
 		text-align: center;
 
@@ -140,6 +141,7 @@ header {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	margin-top: 7rem;
 	z-index: 1;
 
 	&__info {
@@ -165,21 +167,12 @@ header {
 		}
 
 		&-btn {
-			padding: 0.8rem;
 			margin: 2rem;
 			margin-left: 0rem;
-			border-radius: 1rem;
-			transform: skew(-15deg) translate(0px, 0px);
-			font-size: 2rem;
-			font-weight: 600;
-			color: #000;
-			background-color: $primary;
-			box-shadow: 3px 5px 0px #000;
-			transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.3s;
+			@include buttonXS;
 
 			&:hover {
-				transform: skew(-15deg) translate(0px, 5px);
-				box-shadow: none;
+				@include buttonXSAnim;
 			}
 		}
 	}
@@ -229,9 +222,11 @@ header {
 	}
 
 	&__image {
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		order: -1;
 		width: 50%;
-		margin-top: 8rem;
 		margin-bottom: 2rem;
 
 		img {
@@ -249,6 +244,7 @@ nav {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
+	z-index: 10000;
 
 	.nav {
 		display: flex;
@@ -299,6 +295,21 @@ nav {
 /// PROJECTS
 
 .projects {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	&__button {
+		margin-top: 2rem;
+		margin-bottom: 4rem;
+		@include buttonXS;
+
+		&:hover {
+			@include buttonXSAnim;
+		}
+	}
+
 	&__list {
 		display: flex;
 		flex-direction: column;
@@ -460,6 +471,8 @@ nav {
 /// CONTACT
 
 .projects {
+	max-width: 1000px;
+
 	&__contact {
 		display: flex;
 		flex-direction: column;
@@ -471,6 +484,7 @@ nav {
 		}
 
 		&-element {
+			position: relative;
 			margin: 2rem;
 			margin-bottom: 5rem;
 			text-shadow: 0px 0px 2rem #000;
@@ -489,27 +503,20 @@ nav {
 			align-items: center;
 			margin-top: 2rem;
 			margin-bottom: 10rem;
-			width: 100%;
+			width: 90%;
 
 			form {
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
-				width: 60%;
-			}
-
-			label {
-				text-shadow: 2px 2px 0.5rem #000;
-				font-size: 2rem;
-				cursor: text;
+				width: 100%;
 			}
 
 			input,
 			textarea {
 				width: 100%;
 				padding: 2.5rem;
-				margin: 2rem;
 				border-radius: 4.5rem;
 				border: none;
 				text-shadow: 2px 2px 0.5rem #000;
@@ -526,20 +533,14 @@ nav {
 				outline: 5px solid $primary;
 
 				& + label {
-					top: 1.8rem;
-					left: 3rem;
-					outline: 5px solid $primary;
-					background-color: $third;
+					@include inputs;
 				}
 			}
 
 			input:not(:placeholder-shown),
 			textarea:not(:placeholder-shown) {
 				& + label {
-					top: 1.8rem;
-					left: 3rem;
-					outline: 5px solid $primary;
-					background-color: $third;
+					@include inputs;
 				}
 
 				& {
@@ -555,42 +556,39 @@ nav {
 
 			button {
 				align-self: flex-end;
-				padding: 0.8rem;
-				border-radius: 1rem;
-				transform: skew(-15deg) translate(0px, 0px);
-				font-size: 2rem;
-				font-weight: 600;
-				color: #000;
-				background-color: $primary;
-				box-shadow: 3px 5px 0px #000;
-				transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.3s;
+				@include buttonXS;
 
 				&:hover {
-					transform: skew(-15deg) translate(0px, 5px);
-					box-shadow: none;
+					@include buttonXSAnim;
 				}
 			}
 		}
 
 		&-input {
 			position: relative;
-			margin-bottom: 1rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-bottom: 3.5rem;
 			width: 100%;
 
 			label {
 				position: absolute;
 				top: 50%;
 				transform: translate(0, -50%);
-				left: 2rem;
+				left: 3.4rem;
 				font-size: 2rem;
 				padding: 0.5rem 1rem;
 				border-radius: 4.5rem;
+				font-size: 2rem;
+				text-shadow: 2px 2px 0.5rem #000;
 				color: $primary;
+				cursor: text;
 				transition: top 0.3s, left 0.3s, background-color 0.1s;
 			}
 
 			.projects__contact-textareaLabel {
-				top: 4.7rem;
+				top: 3.7rem;
 			}
 		}
 	}

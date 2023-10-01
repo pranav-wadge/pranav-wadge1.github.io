@@ -1,4 +1,5 @@
 @use 'colors' as *;
+@use 'mixins' as *;
 
 @media (min-width: 576px) {
 	.main {
@@ -12,10 +13,9 @@
 			}
 
 			&-btn {
-				padding: 1rem;
 				margin: 2.5rem;
 				margin-left: 0rem;
-				font-size: 2.5rem;
+				@include buttonS;
 			}
 		}
 
@@ -29,6 +29,32 @@
 
 		&__image {
 			margin-bottom: 6rem;
+		}
+	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	/// PROJECTS
+
+	.projects {
+		&__button {
+			@include buttonS;
+		}
+	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	/// CONTACT
+
+	.projects {
+		width: 90%;
+
+		&__contact {
+			width: 100%;
+
+			&-form {
+				button {
+					@include buttonS;
+				}
+			}
 		}
 	}
 }

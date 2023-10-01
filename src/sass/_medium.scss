@@ -1,12 +1,15 @@
 @use 'colors' as *;
+@use 'mixins' as *;
 
 @media (min-width: 772px) {
 	header {
+		justify-content: center;
 		height: 100vh;
 	}
 
 	.main {
 		flex-direction: row;
+		margin-top: 0;
 
 		&__info {
 			margin-left: 10rem;
@@ -19,7 +22,6 @@
 		}
 
 		&__image {
-			display: flex;
 			justify-content: flex-start;
 			align-items: center;
 			// margin-top: 0rem;
@@ -119,10 +121,7 @@
 
 	.projects {
 		&__project {
-			flex-direction: row;
-			// max-width: 1000px;
-			// margin: 2rem 2rem;
-			// padding: 0.5rem;
+			width: 70%;
 
 			&:nth-child(even) {
 				.projects__img {
@@ -135,21 +134,24 @@
 				}
 			}
 		}
-
-		&__img {
-			width: 50%;
-		}
-
-		&__desc {
-			width: 50%;
-		}
 	}
 
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	/// CONTACT
 
 	.projects {
-		width: 100%;
-		max-width: 1200px;
+		width: 70%;
+
+		&__contact {
+			&-element {
+				font-size: 2.5rem;
+			}
+
+			&-form {
+				textarea {
+					min-height: 20rem;
+				}
+			}
+		}
 	}
 }

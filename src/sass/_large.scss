@@ -1,4 +1,5 @@
 @use 'colors' as *;
+@use 'mixins' as *;
 
 @media (min-width: 992px) {
 	.section {
@@ -28,10 +29,9 @@
 			}
 
 			&-btn {
-				padding: 1.8rem;
 				margin: 3rem;
 				margin-left: 0rem;
-				font-size: 3.5rem;
+				@include buttonL;
 			}
 		}
 
@@ -69,6 +69,49 @@
 
 	////////////////////////////////////////////////////////////////////////////////////////////////
 	/// PROJECTS
+
+	.projects {
+		&__button {
+			margin-bottom: 6rem;
+
+			@include buttonL;
+		}
+
+		&__project {
+			flex-direction: row;
+			width: 70%;
+
+			&:nth-child(even) {
+				.projects__img {
+					order: 1;
+				}
+
+				.projects__desc {
+					align-items: flex-end;
+					text-align: right;
+				}
+			}
+		}
+
+		&__img {
+			width: 50%;
+		}
+
+		&__desc {
+			width: 50%;
+		}
+	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	/// CONTACT
+
+	.projects {
+		&__contact {
+			&-element {
+				font-size: 3rem;
+			}
+		}
+	}
 }
 
 @media (min-width: 1400px) {
@@ -90,7 +133,7 @@
 	.main {
 		&__info {
 			h1 {
-				font-size: 7rem;
+				font-size: 6.8rem;
 			}
 
 			h2 {
@@ -120,6 +163,19 @@
 			img {
 				width: 70%;
 			}
+		}
+	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////
+	/// PROJECTS
+
+	.projects {
+		&__button {
+			margin-bottom: 8rem;
+		}
+
+		&__project {
+			width: 100%;
 		}
 	}
 }
