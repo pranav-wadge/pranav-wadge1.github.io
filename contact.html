@@ -1,17 +1,38 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="pl-PL">
 	<head>
-		<title>Portfolio - Damian Duda</title>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<script src="https://kit.fontawesome.com/09446dd6c3.js" crossorigin="anonymous"></script>
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Source+Code+Pro:ital,wght@0,200;0,400;0,600;0,900;1,200;1,400;1,600;1,900&display=swap"
-			rel="stylesheet"
-		/>
-		<link rel="stylesheet" href="./dist/css/style.min.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<meta name="author" content="damian.duda2302@gmail.com" />
+<meta name="description" content="Damian Duda - Frontend Developer z pasją do tworzenia responsywnych i atrakcyjnych interfejsów webowych." />
+<meta
+	name="keywords"
+	content="Content Creator, Biznes, Programowanie, Fronted, Backend, Programista, Developer, Frontend Developer, Backend Developer, Fullstack Developer, Projektant Witryn Internetowych"
+/>
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+<!-- <base href="https://github.com/Thadon1110/portfolio" target="_blank"> -->
+
+<meta property="og:title" content="Damian Duda - Portfolio" />
+<meta property="og:description" content="Damian Duda - Frontend Developer z pasją do tworzenia responsywnych i atrakcyjnych interfejsów webowych." />
+<meta property="og:image" content="https://developer.mozilla.org/mdn-social-share.png" />
+<meta property="og:type" content="portfolio" />
+<meta property="og:locale" content="pl_PL" />
+
+<meta name="twitter:title" content="Damian Duda - Portfolio" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:creator" content="damian.duda2302@gmail.com" />
+
+<script src="https://kit.fontawesome.com/09446dd6c3.js" crossorigin="anonymous"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Source+Code+Pro:ital,wght@0,200;0,400;0,600;0,900;1,200;1,400;1,600;1,900&display=swap"
+	rel="stylesheet"
+/>
+<link rel="stylesheet" href="./dist/css/style.min.css" />
+
+		<title>Damian Duda - Kontakt</title>
 	</head>
 	<body>
 		<header class="header__sections">
@@ -33,6 +54,11 @@
 <div class="circle"></div>
 
 
+			<div class="popup">
+				<p>Wiadomość wysłana poprawnie!</p>
+				<button class="close">OK <i class="fa-solid fa-check"></i></button>
+			</div>
+
 			<div class="projects section">
 				<div class="section__title">
 					<h2>KONTAKT</h2>
@@ -46,30 +72,43 @@
 						</div>
 
 						<div class="projects__contact-element">
+							<a href="https://www.linkedin.com/in/damian-duda-549509212/" target="_blank"
+								><i class="fa-brands fa-linkedin-in"></i>&nbsp;Damian Duda</a
+							>
+						</div>
+
+						<div class="projects__contact-element">
+							<a href="https://github.com/Thadon1110" target="_blank"><i class="fa-brands fa-github"></i>&nbsp;Thadon1110</a>
+						</div>
+
+						<div class="projects__contact-element">
 							<a href="mailto:damian.duda2302@gmail.com"><i class="fa-solid fa-envelope"></i>&nbsp;damian.duda2302@gmail.com</a>
 						</div>
 					</div>
 
-					<div class="projects__contact-form">
-						<form action="">
-							<!-- <div class="projects__contact-input">
-								<input type="text" id="name" placeholder=" " minlength="1" />
-								<label for="name">Imię</label>
-							</div> -->
-
+					<!-- <div class="projects__contact-form">
+						<form action="mail.php" method="post">
 							<div class="projects__contact-input">
-								<input type="text" id="topic" placeholder=" " />
-								<label for="topic">Tytuł</label>
+								<input type="text" id="Imię" name="name" placeholder=" " required />
+								<label for="Imię">Imię</label>
+								<p class="error-text">Imię</p>
 							</div>
 
 							<div class="projects__contact-input">
-								<textarea id="message" placeholder=" "></textarea>
-								<label class="projects__contact-textareaLabel" for="message">Wiadomość</label>
+								<input type="text" id="Email" name="email" placeholder=" " required />
+								<label for="Email">Email</label>
+								<p class="error-text">Email</p>
 							</div>
 
-							<button type="submit">Wyślij</button>
+							<div class="projects__contact-input">
+								<textarea id="Wiadomość" name="message" placeholder=" " required></textarea>
+								<label class="projects__contact-textareaLabel" for="Wiadomość">Wiadomość</label>
+								<p class="error-text">Wiadomość</p>
+							</div>
+
+							<button class="projects__contact-button" type="submit">Wyślij</button>
 						</form>
-					</div>
+					</div> -->
 				</div>
 			</div>
 
@@ -83,5 +122,7 @@
 
 			<!-- <div class="settings"></div> -->
 		</header>
+
+		<script src="./dist/js/email.min.js"></script>
 	</body>
 </html>

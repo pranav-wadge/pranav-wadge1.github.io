@@ -107,6 +107,10 @@
 
 	.projects {
 		&__contact {
+			&-input {
+				font-size: 2rem;
+			}
+
 			&-element {
 				font-size: 3rem;
 			}
