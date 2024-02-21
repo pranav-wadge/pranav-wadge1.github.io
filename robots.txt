@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /images/icons/
+Disallow: /css/
+Disallow: /sass/
+Disallow: /js/
+Disallow: /mail.php
