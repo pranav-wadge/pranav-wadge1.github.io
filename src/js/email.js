@@ -1,75 +1,50 @@
-const username = document.querySelector('#Imię');
-const email = document.querySelector('#Email');
-const content = document.querySelector('#Wiadomość');
-const sendBtn = document.querySelector('.projects__contact-button');
-const popup = document.querySelector('.popup');
-const popupClose = document.querySelector('.popup .close');
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("contact-form");
+  const status = document.getElementById("form-status");
+  const popup = document.querySelector(".popup");
+  const closeBtn = document.querySelector(".popup .close");
 
-const showError = (input, msg) => {
-	const formBox = input.parentElement;
-	const errorMsg = formBox.querySelector('.error-text');
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
 
-	formBox.classList.add('error');
-	errorMsg.textContent = msg;
-};
+    // Get values
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
 
-const clearError = (input) => {
-	const formBox = input.parentElement;
-	formBox.classList.remove('error');
-};
+    // Simple validation
+    if (!name || !email || !message) {
+      status.textContent = "⚠️ Please fill in all fields.";
+      status.style.color = "red";
+      return;
+    }
 
-const checkForm = (input) => {
-	input.forEach((el) => {
-		if (el.value === '') {
-			showError(el, el.id);
-		} else {
-			clearError(el);
-		}
-	});
-};
+    // Send to Formspree
+    const formData = new FormData(form);
 
-const checkLength = (input, min) => {
-	if (input.value.length < min) {
-		showError(input, `${input.id} musi się składać z min. ${min} znaków.`);
-	}
-};
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { Accept: "application/json" },
+      });
 
-const checkMail = (email) => {
-	const re =
-		/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,3}))$/;
+      if (response.ok) {
+        popup.style.display = "block"; // Show popup
+        form.reset(); // Clear fields
+        status.textContent = "";
+      } else {
+        status.textContent = "❌ Oops! Something went wrong.";
+        status.style.color = "red";
+      }
+    } catch (err) {
+      status.textContent = "❌ Network error. Please try again.";
+      status.style.color = "red";
+    }
+  });
 
-	if (re.test(email.value)) {
-		clearError(email);
-	} else {
-		showError(email, 'E-mail jest niepoprawny');
-	}
-};
-
-const checkErrors = () => {
-	const allInputs = document.querySelectorAll('.projects__contact-input');
-	let errorCount = 0;
-
-	allInputs.forEach((el) => {
-		if (el.classList.contains('error')) {
-			errorCount++;
-		}
-	});
-
-	if (errorCount === 0) {
-		popup.classList.add('show-popup');
-	}
-};
-
-sendBtn.addEventListener('click', (e) => {
-	e.preventDefault();
-	checkForm([username, email, content]);
-	checkLength(username, 2);
-	checkLength(content, 20);
-	checkMail(email);
-	checkErrors();
-});
-
-popupClose.addEventListener('click', () => {
-	popup.classList.remove('show-popup');
-	location.reload();
+  // Close popup
+  closeBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+  });
 });
