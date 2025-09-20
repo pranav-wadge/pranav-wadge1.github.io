@@ -1,0 +1,11 @@
+version: "3.9"
+
+services:
+  portfolio:
+    container_name: portfolio
+    build:
+      context: .
+      dockerfile: dockerfile   # or "Dockerfile" if you renamed it
+    ports:
+      - "8085:80"
+    restart: always
